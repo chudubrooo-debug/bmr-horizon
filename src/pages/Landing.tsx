@@ -382,12 +382,12 @@ const Landing = () => {
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0} className="col-span-2 md:col-span-3 grid grid-cols-3 gap-4">
               <div className="stat-card text-center">
                 <BedDouble size={28} className="text-primary mx-auto mb-2" />
-                <p className="text-3xl font-bold font-display gradient-text">1,390+</p>
+                <p className="text-3xl font-bold font-display gradient-text">640+</p>
                 <p className="text-sm text-muted-foreground">Total Beds</p>
               </div>
               <div className="stat-card text-center">
                 <Building2 size={28} className="text-primary mx-auto mb-2" />
-                <p className="text-3xl font-bold font-display gradient-text">6</p>
+                <p className="text-3xl font-bold font-display gradient-text">5</p>
                 <p className="text-sm text-muted-foreground">Hospitals</p>
               </div>
               <div className="stat-card text-center">

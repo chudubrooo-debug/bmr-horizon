@@ -89,8 +89,8 @@ export const monthlyStats = {
   pendingReviews: 5,
   recruitmentRate: 78,
   complianceScore: 98.5,
-  activeSites: 6,
-  totalBeds: 1390,
+  activeSites: 5,
+  totalBeds: 640,
 };
 
 export const chartData = {

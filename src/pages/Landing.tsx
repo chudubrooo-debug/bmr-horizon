@@ -98,9 +98,9 @@ const coreValues = [
 ];
 
 const regulatoryData = [
-  { name: "USFDA", inspections: 1, success: 100 },
+  { name: "USFDA", inspections: 2, success: 100 },
   { name: "DCGI", inspections: 3, success: 100 },
-  { name: "Regulatory Audits", inspections: 4, success: 100 },
+  { name: "Regulatory Audits", inspections: 5, success: 100 },
 ];
 
 const inspectionTimeline = [
@@ -108,6 +108,7 @@ const inspectionTimeline = [
   { year: "2016", event: "DCGI Inspection", result: "Successful" },
   { year: "2018", event: "DCGI Inspection", result: "Successful" },
   { year: "2019", event: "DCGI Inspection", result: "Successful" },
+  { year: "2026", event: "USFDA Inspection", result: "Successful" },
 ];
 
 const hospitals = [
@@ -116,7 +117,6 @@ const hospitals = [
   { name: "Landmark Hospitals", type: "Private Multi-Specialty", beds: 100, location: "Nizampet, Kukatpally" },
   { name: "Paarthiv Lung Care Center", type: "Super-Specialty", beds: 25, location: "Erragadda, Hyderabad" },
   { name: "Renova Century Hospital", type: "Private Multi-Specialty", beds: 200, location: "Banjara Hills, Hyderabad" },
-  { name: "Malla Reddy Medical College", type: "Private Multi-Specialty", beds: 750, location: "Suraram, Jeedimetla" },
 ];
 
 const therapeuticAreas = [
@@ -209,15 +209,15 @@ const Landing = () => {
             <motion.p variants={fadeUp} custom={2} className="text-muted-foreground text-lg leading-relaxed max-w-3xl mx-auto">
               BMR (Biomedical Research) is a prominent global provider of Site Management Organization (SMO) services,
               delivering customized and adaptable outsourcing solutions to meet specific clinical trial requirements.
-              With 8+ years of experience and a network spanning Asia, Europe, and the USA, we bring trust, expertise,
+              With 15+ years of experience since 2010 and a network spanning Asia, Europe, and the USA, we bring trust, expertise,
               and dedication to every engagement.
             </motion.p>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-4xl mx-auto">
-            <AnimatedCounter end={8} suffix="+" label="Years Experience" sublabel="Since 2016" />
+            <AnimatedCounter end={15} suffix="+" label="Years Experience" sublabel="Since 2010" />
             <AnimatedCounter end={100} suffix="%" label="Inspection Success" sublabel="USFDA & DCGI" />
-            <AnimatedCounter end={1390} suffix="+" label="Hospital Beds" sublabel="6 Affiliated Hospitals" />
-            <AnimatedCounter end={4} label="Regulatory Audits" sublabel="All Successful" />
+            <AnimatedCounter end={640} suffix="+" label="Hospital Beds" sublabel="5 Affiliated Hospitals" />
+            <AnimatedCounter end={5} label="Regulatory Audits" sublabel="All Successful" />
           </motion.div>
 
           {/* Mission & Vision */}

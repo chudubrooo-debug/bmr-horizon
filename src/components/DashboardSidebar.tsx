@@ -1,15 +1,16 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import bmrLogo from "@/assets/bmr-logo.png";
+import ThemeToggle from "@/components/ThemeToggle";
 import {
   LayoutDashboard, Users, FolderKanban, CalendarCheck, CreditCard,
-  Megaphone, IdCard, LogOut, ClipboardList, FileText, UserCircle
+  Megaphone, IdCard, LogOut, ClipboardList, FileText, UserCircle, Shield
 } from "lucide-react";
 
 const adminLinks = [
   { to: "/admin", icon: LayoutDashboard, label: "Dashboard" },
   { to: "/admin/employees", icon: Users, label: "Employees" },
-  { to: "/admin/projects", icon: FolderKanban, label: "Projects" },
+  { to: "/admin/projects", icon: FolderKanban, label: "Clinical Trials" },
   { to: "/admin/attendance", icon: CalendarCheck, label: "Attendance" },
   { to: "/admin/announcements", icon: Megaphone, label: "Announcements" },
   { to: "/admin/id-cards", icon: IdCard, label: "ID Cards" },
@@ -18,7 +19,7 @@ const adminLinks = [
 
 const employeeLinks = [
   { to: "/employee", icon: LayoutDashboard, label: "Dashboard" },
-  { to: "/employee/projects", icon: FolderKanban, label: "My Projects" },
+  { to: "/employee/projects", icon: FolderKanban, label: "My Trials" },
   { to: "/employee/attendance", icon: CalendarCheck, label: "Attendance" },
   { to: "/employee/updates", icon: ClipboardList, label: "Work Updates" },
   { to: "/employee/documents", icon: FileText, label: "Documents" },
@@ -33,8 +34,9 @@ const DashboardSidebar = () => {
 
   return (
     <aside className="fixed left-0 top-0 bottom-0 w-64 bg-sidebar flex flex-col z-40">
-      <div className="p-5 border-b border-sidebar-border">
-        <img src={bmrLogo} alt="BMR" className="h-10 w-auto brightness-0 invert" />
+      <div className="p-5 border-b border-sidebar-border flex items-center justify-between">
+        <img src={bmrLogo} alt="BMR-SMO" className="h-10 w-auto brightness-0 invert" />
+        <ThemeToggle className="text-sidebar-foreground hover:bg-sidebar-accent" />
       </div>
 
       <nav className="flex-1 p-4 space-y-1 overflow-y-auto scrollbar-hide">

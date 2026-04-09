@@ -11,9 +11,10 @@ export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem("bmr-theme") as Theme) || "light";
-    }
+    try {
+      const saved = localStorage.getItem("bmr-theme");
+      if (saved === "dark" || saved === "light") return saved;
+    } catch {}
     return "light";
   });
 
@@ -21,7 +22,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const root = document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
-    localStorage.setItem("bmr-theme", theme);
+    try {
+      localStorage.setItem("bmr-theme", theme);
+    } catch {}
   }, [theme]);
 
   const toggleTheme = () => setTheme((t) => (t === "light" ? "dark" : "light"));

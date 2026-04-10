@@ -145,7 +145,8 @@ const Landing = () => {
 
       {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <Scene3D showDNA showParticles className="absolute inset-0 opacity-20" />
+        {/* Background gradient instead of second 3D canvas */}
+        <div className="absolute inset-0 opacity-20 bg-gradient-to-br from-primary/20 via-transparent to-accent/10" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
         <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center pt-24">
           <motion.div initial="hidden" animate="visible" className="space-y-6">

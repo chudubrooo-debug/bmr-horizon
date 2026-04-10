@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { motion } from "framer-motion";
-import Scene3D from "@/components/three/Scene3D";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import bmrLogo from "@/assets/bmr-logo.png";
 import { Eye, EyeOff } from "lucide-react";
 
@@ -47,8 +47,8 @@ const Login = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left - 3D Scene */}
-      <div className="hidden lg:flex flex-1 relative items-center justify-center bg-sidebar overflow-hidden">
-        <Scene3D showDNA showParticles interactive className="absolute inset-0" />
+      <div className="hidden lg:flex flex-1 relative items-center justify-center overflow-hidden">
+        <AnimatedBackground variant="login" className="absolute inset-0" />
         <div className="relative z-10 text-center p-12">
           <h2 className="text-3xl font-bold font-display text-sidebar-foreground mb-4">Welcome to BMR</h2>
           <p className="text-sidebar-foreground/60 max-w-md">Secure access to your clinical research dashboard and tools.</p>

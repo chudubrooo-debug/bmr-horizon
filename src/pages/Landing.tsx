@@ -1,5 +1,5 @@
 import PublicNavbar from "@/components/PublicNavbar";
-import AnimatedBackground from "@/components/AnimatedBackground";
+import Scene3D from "@/components/three/Scene3D";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ServiceModal from "@/components/ServiceModal";
 import { motion } from "framer-motion";
@@ -145,7 +145,7 @@ const Landing = () => {
 
       {/* Hero */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
-        <AnimatedBackground variant="hero" className="absolute inset-0 opacity-30" />
+        <Scene3D showDNA showParticles className="absolute inset-0 opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/50 to-background" />
         <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-12 items-center pt-24">
           <motion.div initial="hidden" animate="visible" className="space-y-6">
@@ -174,7 +174,7 @@ const Landing = () => {
             </motion.div>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.8 }} className="hidden lg:block">
-            <AnimatedBackground variant="dna" className="h-[500px] w-full" />
+            <Scene3D showDNA showParticles={false} interactive className="h-[500px] w-full" />
           </motion.div>
         </div>
       </section>

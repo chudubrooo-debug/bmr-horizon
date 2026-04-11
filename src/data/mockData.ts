@@ -44,14 +44,14 @@ export interface AttendanceRecord {
 }
 
 export const employees: Employee[] = [
-  { id: "1", name: "Dr. Aravind Reddy", email: "aravind@bmrsmo.com", department: "Administration", role: "Admin", employeeId: "BMR-001", status: "active", joinDate: "2016-03-15" },
-  { id: "2", name: "Dr. Priya Sharma", email: "priya@bmrsmo.com", department: "Clinical Operations", role: "Clinical Manager", employeeId: "BMR-042", status: "active", joinDate: "2018-01-10" },
-  { id: "3", name: "Dr. Sanjay Patel", email: "sanjay@bmrsmo.com", department: "Regulatory Affairs", role: "Regulatory Lead", employeeId: "BMR-018", status: "active", joinDate: "2017-08-22" },
-  { id: "4", name: "Meera Krishnan", email: "meera@bmrsmo.com", department: "Data Management", role: "Data Analyst", employeeId: "BMR-056", status: "active", joinDate: "2020-02-14" },
-  { id: "5", name: "Dr. Lakshmi Nair", email: "lakshmi@bmrsmo.com", department: "Quality Assurance", role: "QA Lead", employeeId: "BMR-033", status: "active", joinDate: "2019-06-01" },
-  { id: "6", name: "Rajesh Kumar", email: "rajesh@bmrsmo.com", department: "Site Operations", role: "CRC", employeeId: "BMR-071", status: "active", joinDate: "2021-09-10" },
-  { id: "7", name: "Dr. Anitha Rao", email: "anitha@bmrsmo.com", department: "Clinical Operations", role: "Principal Investigator", employeeId: "BMR-012", status: "active", joinDate: "2017-04-05" },
-  { id: "8", name: "Vikram Singh", email: "vikram@bmrsmo.com", department: "Patient Recruitment", role: "Recruitment Lead", employeeId: "BMR-089", status: "active", joinDate: "2022-01-20" },
+  { id: "1", name: "Myla Ashok Reddy", email: "ashok@bmrsmo.com", department: "Administration", role: "Managing Director", employeeId: "BMR-001", status: "active", joinDate: "2010-01-01" },
+  { id: "2", name: "Dr. G Sridhar", email: "sridhar@bmrsmo.com", department: "Clinical Operations", role: "CRC-1", employeeId: "BMR-132", status: "active", joinDate: "2025-07-01" },
+  { id: "3", name: "Dr. Varshika", email: "varshika@bmrsmo.com", department: "Clinical Operations", role: "CRC-1", employeeId: "BMR-133", status: "active", joinDate: "2025-08-04" },
+  { id: "4", name: "Dr. Vijay", email: "vijay@bmrsmo.com", department: "Clinical Operations", role: "CRC-1", employeeId: "BMR-134", status: "active", joinDate: "2025-07-18" },
+  { id: "5", name: "Dr. Akhila", email: "akhila@bmrsmo.com", department: "Clinical Operations", role: "CRC-1", employeeId: "BMR-135", status: "active", joinDate: "2025-08-04" },
+  { id: "6", name: "Dr. G Praveen Kumar", email: "praveen@bmrsmo.com", department: "Clinical Operations", role: "CRC-1", employeeId: "BMR-136", status: "active", joinDate: "2025-12-05" },
+  { id: "7", name: "Dr. P Sai Sri Harsha", email: "harsha@bmrsmo.com", department: "Clinical Operations", role: "Intern", employeeId: "BMR-137", status: "active", joinDate: "2025-12-05" },
+  { id: "8", name: "Dr. B Krupakar", email: "krupakar@bmrsmo.com", department: "Clinical Operations", role: "Intern", employeeId: "BMR-138", status: "active", joinDate: "2025-12-22" },
 ];
 
 export const projects: Project[] = [

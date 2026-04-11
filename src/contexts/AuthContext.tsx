@@ -23,8 +23,8 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 const MOCK_USERS: Record<string, User & { password: string }> = {
-  "admin@bmr.com": { id: "1", name: "Dr. Aravind Reddy", email: "admin@bmr.com", role: "admin", password: "admin123", department: "Administration", employeeId: "BMR-001" },
-  "employee@bmr.com": { id: "2", name: "Dr. Priya Sharma", email: "employee@bmr.com", role: "employee", password: "emp123", department: "Clinical Operations", employeeId: "BMR-042" },
+  "admin@bmr.com": { id: "1", name: "Myla Ashok Reddy", email: "admin@bmr.com", role: "admin", password: "admin123", department: "Administration", employeeId: "BMR-001" },
+  "employee@bmr.com": { id: "2", name: "Dr. G Sridhar", email: "employee@bmr.com", role: "employee", password: "emp123", department: "Clinical Operations", employeeId: "BMR-132" },
 };
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {

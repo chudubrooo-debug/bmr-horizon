@@ -72,12 +72,12 @@ export const announcements: Announcement[] = [
 ];
 
 export const attendanceRecords: AttendanceRecord[] = [
-  { id: "1", employeeId: "BMR-042", employeeName: "Dr. Priya Sharma", date: "2026-04-08", checkIn: "08:45", checkOut: "17:30", status: "present" },
-  { id: "2", employeeId: "BMR-018", employeeName: "Dr. Sanjay Patel", date: "2026-04-08", checkIn: "09:15", checkOut: "18:00", status: "late" },
-  { id: "3", employeeId: "BMR-056", employeeName: "Meera Krishnan", date: "2026-04-08", checkIn: "08:30", checkOut: "17:00", status: "present" },
-  { id: "4", employeeId: "BMR-033", employeeName: "Dr. Lakshmi Nair", date: "2026-04-08", checkIn: "", checkOut: "", status: "absent" },
-  { id: "5", employeeId: "BMR-071", employeeName: "Rajesh Kumar", date: "2026-04-08", checkIn: "08:50", checkOut: "17:15", status: "present" },
-  { id: "6", employeeId: "BMR-012", employeeName: "Dr. Anitha Rao", date: "2026-04-08", checkIn: "08:30", checkOut: "18:30", status: "present" },
+  { id: "1", employeeId: "BMR-132", employeeName: "Dr. G Sridhar", date: "2026-04-08", checkIn: "08:45", checkOut: "17:30", status: "present" },
+  { id: "2", employeeId: "BMR-133", employeeName: "Dr. Varshika", date: "2026-04-08", checkIn: "09:15", checkOut: "18:00", status: "late" },
+  { id: "3", employeeId: "BMR-134", employeeName: "Dr. Vijay", date: "2026-04-08", checkIn: "08:30", checkOut: "17:00", status: "present" },
+  { id: "4", employeeId: "BMR-135", employeeName: "Dr. Akhila", date: "2026-04-08", checkIn: "", checkOut: "", status: "absent" },
+  { id: "5", employeeId: "BMR-136", employeeName: "Dr. G Praveen Kumar", date: "2026-04-08", checkIn: "08:50", checkOut: "17:15", status: "present" },
+  { id: "6", employeeId: "BMR-137", employeeName: "Dr. P Sai Sri Harsha", date: "2026-04-08", checkIn: "08:30", checkOut: "18:30", status: "present" },
 ];
 
 export const monthlyStats = {

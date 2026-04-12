@@ -15,6 +15,7 @@ import AdminAttendance from "./pages/admin/AdminAttendance";
 import AdminAnnouncements from "./pages/admin/AdminAnnouncements";
 import AdminIDCards from "./pages/admin/AdminIDCards";
 import AdminFinance from "./pages/admin/AdminFinance";
+import AdminUserManagement from "./pages/admin/AdminUserManagement";
 import EmployeeDashboard from "./pages/employee/EmployeeDashboard";
 import EmployeeProjects from "./pages/employee/EmployeeProjects";
 import EmployeeAttendance from "./pages/employee/EmployeeAttendance";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/admin/announcements" element={<ProtectedRoute allowedRoles={["admin"]}><AdminAnnouncements /></ProtectedRoute>} />
             <Route path="/admin/id-cards" element={<ProtectedRoute allowedRoles={["admin"]}><AdminIDCards /></ProtectedRoute>} />
             <Route path="/admin/finance" element={<ProtectedRoute allowedRoles={["admin"]}><AdminFinance /></ProtectedRoute>} />
+            <Route path="/admin/user-management" element={<ProtectedRoute allowedRoles={["admin"]}><AdminUserManagement /></ProtectedRoute>} />
 
             {/* Employee Routes */}
             <Route path="/employee" element={<ProtectedRoute allowedRoles={["employee"]}><EmployeeDashboard /></ProtectedRoute>} />

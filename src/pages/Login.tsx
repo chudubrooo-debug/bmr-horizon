@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Scene3D from "@/components/three/Scene3D";
 import bmrLogo from "@/assets/bmr-logo.png";
 import { Eye, EyeOff } from "lucide-react";
+import MFAVerify from "@/components/MFAVerify";
 
 const Login = () => {
   const [isSignup, setIsSignup] = useState(false);
@@ -14,6 +15,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showMFA, setShowMFA] = useState(false);
+  const [pendingRole, setPendingRole] = useState<string | null>(null);
   const { login, signup } = useAuth();
   const navigate = useNavigate();
 
@@ -32,7 +35,12 @@ const Login = () => {
         const stored = localStorage.getItem("bmr_user");
         if (stored) {
           const u = JSON.parse(stored);
-          navigate(u.role === "admin" ? "/admin" : "/employee");
+          if (u.role === "admin") {
+            setPendingRole("admin");
+            setShowMFA(true);
+          } else {
+            navigate("/employee");
+          }
         }
       } else {
         setError("Invalid credentials. Try admin@bmr.com / admin123 or employee@bmr.com / emp123");
@@ -43,6 +51,10 @@ const Login = () => {
       setLoading(false);
     }
   };
+
+  if (showMFA) {
+    return <MFAVerify onVerified={() => navigate("/admin")} />;
+  }
 
   return (
     <div className="min-h-screen flex">

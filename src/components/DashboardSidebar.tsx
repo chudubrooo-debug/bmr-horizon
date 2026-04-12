@@ -15,6 +15,7 @@ const adminLinks = [
   { to: "/admin/announcements", icon: Megaphone, label: "Announcements" },
   { to: "/admin/id-cards", icon: IdCard, label: "ID Cards" },
   { to: "/admin/finance", icon: CreditCard, label: "Finance" },
+  { to: "/admin/user-management", icon: Shield, label: "User Management" },
 ];
 
 const employeeLinks = [

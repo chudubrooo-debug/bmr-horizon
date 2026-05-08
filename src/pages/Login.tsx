@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { motion } from "framer-motion";
@@ -14,51 +14,47 @@ const Login = () => {
   const [name, setName] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  const [info, setInfo] = useState("");
   const [loading, setLoading] = useState(false);
   const [showMFA, setShowMFA] = useState(false);
-  const [pendingRole, setPendingRole] = useState<string | null>(null);
-  const { login, signup } = useAuth();
+  const { login, signup, user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
+
+  // Auto-redirect once user/role is loaded after login
+  useEffect(() => {
+    if (!isAuthenticated || !user) return;
+    if (showMFA) return; // wait for MFA completion
+    if (user.role === "admin") {
+      setShowMFA(true);
+    } else {
+      navigate("/employee", { replace: true });
+    }
+  }, [isAuthenticated, user, showMFA, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setInfo("");
     setLoading(true);
     try {
-      let success: boolean;
-      if (isSignup) {
-        success = await signup(name, email, password);
-      } else {
-        success = await login(email, password);
+      const res = isSignup ? await signup(name, email, password) : await login(email, password);
+      if (!res.ok) {
+        setError(res.error || "Authentication failed");
+      } else if (isSignup) {
+        setInfo("Account created. You can now sign in.");
+        setIsSignup(false);
       }
-      if (success) {
-        const stored = localStorage.getItem("bmr_user");
-        if (stored) {
-          const u = JSON.parse(stored);
-          if (u.role === "admin") {
-            setPendingRole("admin");
-            setShowMFA(true);
-          } else {
-            navigate("/employee");
-          }
-        }
-      } else {
-        setError("Invalid credentials. Try admin@bmr.com / admin123 or employee@bmr.com / emp123");
-      }
-    } catch {
-      setError("An error occurred");
     } finally {
       setLoading(false);
     }
   };
 
   if (showMFA) {
-    return <MFAVerify onVerified={() => navigate("/admin")} />;
+    return <MFAVerify onVerified={() => navigate("/admin", { replace: true })} />;
   }
 
   return (
     <div className="min-h-screen flex">
-      {/* Left - 3D Scene */}
       <div className="hidden lg:flex flex-1 relative items-center justify-center bg-sidebar overflow-hidden">
         <Scene3D showDNA showParticles interactive className="absolute inset-0" />
         <div className="relative z-10 text-center p-12">
@@ -67,7 +63,6 @@ const Login = () => {
         </div>
       </div>
 
-      {/* Right - Form */}
       <div className="flex-1 flex items-center justify-center p-8">
         <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="w-full max-w-md space-y-8">
           <div className="text-center">
@@ -90,7 +85,7 @@ const Login = () => {
             <div>
               <label className="text-sm font-medium text-foreground mb-1.5 block">Password</label>
               <div className="relative">
-                <input type={showPassword ? "text" : "password"} className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition pr-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                <input type={showPassword ? "text" : "password"} minLength={6} className="w-full px-4 py-3 rounded-lg bg-secondary border border-border text-foreground text-sm focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition pr-10" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground" onClick={() => setShowPassword(!showPassword)}>
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
@@ -98,6 +93,7 @@ const Login = () => {
             </div>
 
             {error && <p className="text-sm text-destructive">{error}</p>}
+            {info && <p className="text-sm text-pharma-green">{info}</p>}
 
             <button type="submit" disabled={loading} className="w-full gradient-bg text-primary-foreground py-3 rounded-lg font-semibold hover:opacity-90 transition-all disabled:opacity-50">
               {loading ? "Please wait..." : isSignup ? "Create Account" : "Sign In"}
@@ -105,16 +101,15 @@ const Login = () => {
           </form>
 
           <div className="text-center">
-            <button onClick={() => { setIsSignup(!isSignup); setError(""); }} className="text-sm text-primary hover:underline">
+            <button onClick={() => { setIsSignup(!isSignup); setError(""); setInfo(""); }} className="text-sm text-primary hover:underline">
               {isSignup ? "Already have an account? Sign In" : "Need an account? Sign Up"}
             </button>
           </div>
 
           {!isSignup && (
             <div className="glass-card p-4 text-xs text-muted-foreground space-y-1">
-              <p className="font-medium text-foreground">Demo Credentials:</p>
-              <p>Admin: admin@bmr.com / admin123</p>
-              <p>Employee: employee@bmr.com / emp123</p>
+              <p className="font-medium text-foreground">Getting started:</p>
+              <p>Sign up as a new employee, or use admin credentials provisioned in the User Management panel.</p>
             </div>
           )}
         </motion.div>
